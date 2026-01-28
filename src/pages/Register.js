@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { API_URL } from '../config/api';
 import '../styles/Auth.css';
 
 export const Register = () => {
@@ -30,7 +31,7 @@ export const Register = () => {
 
     try {
       const res = await axios.post(
-        "https://todo-backend-zj2u.onrender.com/api/auth/register",
+        `${API_URL}/api/auth/register`,
         formData
       );
 
@@ -51,8 +52,7 @@ export const Register = () => {
 
     try {
       const res = await axios.post(
-        'https://todo-backend-zj2u.onrender.com/api/auth/resend-verification'
-,
+        `${API_URL}/api/auth/resend-verification`,
         { email: formData.email }
       );
 

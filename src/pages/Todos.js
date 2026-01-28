@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext, useCallback } from 'react';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
+import { API_URL } from '../config/api';
 import TodoItem from '../components/TodoItem';
 import TodoForm from '../components/TodoForm';
 import '../styles/Todos.css';
@@ -14,7 +15,7 @@ export const Todos = () => {
   const fetchTodos = useCallback(async () => {
     try {
       setLoading(true);
-      const response = await axios.get('/api/todos', {
+      const response = await axios.get(`${API_URL}/api/todos`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTodos(response.data);
@@ -31,7 +32,7 @@ export const Todos = () => {
 
   const handleAddTodo = async (todo) => {
     try {
-      const response = await axios.post('/api/todos', todo, {
+      const response = await axios.post(`${API_URL}/api/todos`, todo, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTodos([response.data, ...todos]);
@@ -42,7 +43,7 @@ export const Todos = () => {
 
   const handleUpdateTodo = async (id, updatedTodo) => {
     try {
-      const response = await axios.put(`/api/todos/${id}`, updatedTodo, {
+      const response = await axios.put(`${API_URL}/api/todos/${id}`, updatedTodo, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTodos(todos.map((todo) => (todo._id === id ? response.data : todo)));
@@ -53,7 +54,7 @@ export const Todos = () => {
 
   const handleDeleteTodo = async (id) => {
     try {
-      await axios.delete(`/api/todos/${id}`, {
+      await axios.delete(`${API_URL}/api/todos/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setTodos(todos.filter((todo) => todo._id !== id));
