@@ -1,0 +1,48 @@
+.todos-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  min-height: calc(100vh - 80px);
+}
+
+.todos-header {
+  background: white;
+  padding: 2rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.todos-header h1 {
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.todos-header p {
+  color: #7f8c8d;
+  font-size: 1rem;
+}
+
+.error-message {
+  background-color: #fadbd8;
+  color: #c0392b;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  border-left: 4px solid #c0392b;
+}
+
+.todos-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.no-todos {
+  text-align: center;
+  color: #95a5a6;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  font-size: 1.1rem;
+}
